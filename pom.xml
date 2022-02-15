@@ -10,7 +10,7 @@
     </parent>
     <groupId>me.craicic</groupId>
     <artifactId>mvc</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>0.1</version>
     <name>Training Spring MVC</name>
     <description>Training Spring MVC</description>
     <properties>
