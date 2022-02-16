@@ -1,65 +1,35 @@
 package me.craicic.mvc;
 
-import java.sql.Date;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+import java.sql.Date;
+import java.util.Set;
+
+@Entity
+@Table(name = "app_user")
+@Getter
+@Setter
 public class AppUser {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_seq")
+    @SequenceGenerator(name = "user_seq", sequenceName = "user_sequence", initialValue = 100, allocationSize = 1)
     private Integer id;
+
+    @Column(unique = true, nullable = false)
     private String pseudo;
+
+    @Column(nullable = false)
     private String password;
+
+    @Column(name = "creation_date", nullable = false)
     private Date creationDate;
 
-    public Integer getId() {
-        return id;
-    }
+    @OneToMany(mappedBy = "user")
+    private Set<Entry> entries;
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getPseudo() {
-        return pseudo;
-    }
-
-    public void setPseudo(String pseudo) {
-        this.pseudo = pseudo;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public Date getCreationDate() {
-        return creationDate;
-    }
-
-    public void setCreationDate(Date creationDate) {
-        this.creationDate = creationDate;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-
-        AppUser appUser = (AppUser) o;
-
-        if (!id.equals(appUser.id)) return false;
-        if (!pseudo.equals(appUser.pseudo)) return false;
-        if (!password.equals(appUser.password)) return false;
-        return creationDate.equals(appUser.creationDate);
-    }
-
-    @Override
-    public int hashCode() {
-        int result = id.hashCode();
-        result = 31 * result + pseudo.hashCode();
-        result = 31 * result + password.hashCode();
-        result = 31 * result + creationDate.hashCode();
-        return result;
+    public AppUser() {
     }
 }

@@ -1,4 +1,4 @@
-CREATE TABLE app_user
+CREATE TABLE IF NOT EXISTS app_user
 (
     id            INTEGER PRIMARY KEY,
     pseudo        TEXT UNIQUE NOT NULL,
@@ -6,7 +6,7 @@ CREATE TABLE app_user
     creation_date DATE        NOT NULL
 );
 
-CREATE TABLE entry
+CREATE TABLE IF NOT EXISTS entry
 (
     id            INTEGER PRIMARY KEY,
     user_id       INTEGER NOT NULL,
@@ -17,3 +17,6 @@ CREATE TABLE entry
     note          TEXT,
     FOREIGN KEY (user_id) REFERENCES app_user (id)
 );
+
+CREATE SEQUENCE IF NOT EXISTS user_sequence INCREMENT BY 1 MINVALUE 100;
+CREATE SEQUENCE IF NOT EXISTS entry_sequence INCREMENT BY 1 MINVALUE 200;
