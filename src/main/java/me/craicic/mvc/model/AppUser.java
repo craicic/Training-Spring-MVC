@@ -1,4 +1,4 @@
-package me.craicic.mvc;
+package me.craicic.mvc.model;
 
 import lombok.Getter;
 import lombok.Setter;
