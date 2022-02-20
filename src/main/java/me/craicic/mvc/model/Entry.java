@@ -35,4 +35,16 @@ public class Entry {
 
     public Entry() {
     }
+
+    @Override
+    public String toString() {
+        return "Entry{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", note='" + note + '\'' +
+                ", lastModified=" + lastModified +
+                '}';
+    }
 }

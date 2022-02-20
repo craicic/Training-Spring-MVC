@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>List</title>
+</head>
+<body>
+<p><span th:text="${user}"></span></p>
+<table>
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Username</th>
+        <th>Password</th>
+        <th>Website</th>
+        <th>Last edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:if="${entries.isEmpty()}">
+        <td colspan="2">No Entries Available for user</td>
+    </tr>
+    <tr th:each="entry : ${entries}">
+        <td><span th:text="${entry.title}"> Title </span></td>
+        <td><span th:text="${entry.username}"> Username </span></td>
+        <td><span th:text="${entry.password}"> Password </span></td>
+        <td><span th:text="${entry.note}"> Note </span></td>
+        <td><span th:text="${entry.lastModified}"> Last edit </span></td>
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

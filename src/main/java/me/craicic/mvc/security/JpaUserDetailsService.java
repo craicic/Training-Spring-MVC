@@ -24,6 +24,9 @@ public class JpaUserDetailsService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         AppUser appUser = appUserRepository.findAppUserByPseudo(username);
+        if (appUser == null) {
+            throw new UsernameNotFoundException("Wrong login");
+        }
         return new CustomUserDetails(appUser.getPseudo(), appUser.getPassword(), null);
     }
 }

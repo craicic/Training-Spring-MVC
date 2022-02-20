@@ -2,10 +2,12 @@ package me.craicic.mvc.mapper;
 
 import me.craicic.mvc.dto.EntryDto;
 import me.craicic.mvc.model.Entry;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EntryMapper {
 
-    Entry dtoToModel(EntryDto dto) {
+    public Entry dtoToModel(EntryDto dto) {
         Entry model = new Entry();
 
         model.setId(dto.getId());
@@ -18,7 +20,7 @@ public class EntryMapper {
         return model;
     }
 
-    EntryDto modelToDto(Entry model) {
+    public EntryDto modelToDto(Entry model) {
         EntryDto dto = new EntryDto();
 
         dto.setId(model.getId());

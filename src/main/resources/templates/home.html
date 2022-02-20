@@ -1,11 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
 <body>
-    <p>Home reached !</p>
-    <p><a href="view">Go to passwords view</a></p>
+<p>Home reached !</p>
+<p>
+    <a th:href="@{view}">Go to manager</a>
+</p>
 </body>
 </html>

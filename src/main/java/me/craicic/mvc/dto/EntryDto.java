@@ -23,4 +23,16 @@ public class EntryDto {
 
     public EntryDto() {
     }
+
+    @Override
+    public String toString() {
+        return "EntryDto{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", note='" + note + '\'' +
+                ", lastModified=" + lastModified +
+                '}';
+    }
 }
