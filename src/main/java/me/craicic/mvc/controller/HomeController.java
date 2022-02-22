@@ -11,8 +11,8 @@ public class HomeController {
         return "home";
     }
 
-    @GetMapping("view")
+    @GetMapping("overview")
     public String view() {
-        return "view";
+        return "overview";
     }
 }

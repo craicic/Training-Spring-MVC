@@ -22,11 +22,11 @@ public class ViewController {
         this.entryService = entryService;
     }
 
-    @GetMapping("view/list")
+    @GetMapping("entry/list")
     public String view(Principal principal, Model model) {
         model.addAttribute("user", principal.getName());
         model.addAttribute("entries", entryService.getUserEntries(principal.getName()).stream().toList());
-        return "list";
+        return "entry/list";
     }
 
 }
