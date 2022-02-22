@@ -1,14 +1,20 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+<head th:include="fragment/head :: head">
+    <title id="title">PassDemo - Home</title>
 </head>
+
 <body>
-<p>Home reached !</p>
-<p>
-    <a th:href="@{overview}">Go to manager</a>
-</p>
+<div class="container">
+    <p class="text-black-50">Home reached !</p>
+    <p>
+        <a th:href="@{overview}">Go to manager</a>
+    </p>
+</div>
+
+<div th:include="fragment/script-embbed :: emb"></div>
+
 </body>
 </html>

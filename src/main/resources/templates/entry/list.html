@@ -1,20 +1,23 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head>
+
+<head th:include="fragment/head :: head">
     <meta charset="UTF-8">
-    <title>List</title>
+    <title>PassDemo - list entries</title>
 </head>
+
 <body>
 <p><span th:text="${user}"></span></p>
-<table>
+
+<table class="table">
     <thead>
-    <tr>
-        <th>Title</th>
-        <th>Username</th>
-        <th>Password</th>
-        <th>Last edit</th>
-        <th>Note</th>
+    <tr >
+        <th scope="col">Title</th>
+        <th scope="col">Username</th>
+        <th scope="col">Password</th>
+        <th scope="col">Last edit</th>
+        <th scope="col">Note</th>
     </tr>
     </thead>
     <tbody>
@@ -30,5 +33,7 @@
     </tr>
     </tbody>
 </table>
+
+<div th:include="fragment/script-embbed :: emb"></div>
 </body>
 </html>

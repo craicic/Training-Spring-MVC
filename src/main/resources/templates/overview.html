@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+
+<head th:include="fragment/head :: head">
+    <title>PassDemo - Overview</title>
 </head>
+
 <body>
     <p>view reached !</p>
     <p>
@@ -12,5 +13,6 @@
         <a th:href="@{/view/new}">Add an entry</a>
     </p>
 
+    <div th:include="fragment/script-embbed :: emb"></div>
 </body>
 </html>

@@ -33,7 +33,11 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                .antMatchers("/home").permitAll()
+                .antMatchers(
+                        "home"
+//                        "/webjars/bootstrap/5.1.3/css/bootstrap.min.css",
+//                        "/webjars/bootstrap/5.1.3/js/bootstrap.min.js"
+                        ).permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .formLogin();
