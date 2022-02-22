@@ -28,6 +28,7 @@ public class Entry {
     @Column(nullable = false)
     private String password;
 
+    @Column(length = 1023)
     private String note;
 
     @Column(name = "last_modified")

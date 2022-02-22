@@ -12,13 +12,14 @@ public class AppUserDto {
 
     private Integer id;
 
-    private String pseudo;
+    private String mainUsername;
 
-    private String password;
+    private String mainPassword;
 
     private Date creationDate;
 
-    private Set<EntryDto> entryDtos;
+
+    private Set<EntryDto> entryDtoSet;
 
     public AppUserDto() {
     }

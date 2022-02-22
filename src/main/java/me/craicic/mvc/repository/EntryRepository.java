@@ -9,6 +9,6 @@ import java.util.Set;
 public interface EntryRepository extends CrudRepository<Entry, Integer> {
 
 
-    @Query("SELECT e FROM Entry AS e JOIN e.user u WHERE u.pseudo = :pseudo ")
-    Set<Entry> findEntryByUserPseudo(String pseudo);
+    @Query("SELECT e FROM Entry AS e JOIN e.user u WHERE u.mainUsername = :mainUsername ")
+    Set<Entry> findEntryByUserMainUsername(String mainUsername);
 }

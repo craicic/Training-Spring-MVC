@@ -32,7 +32,7 @@ public class EntryService {
 
     public Set<EntryDto> getUserEntries(String username) {
         Set<EntryDto> userEntries = new HashSet<>();
-        entryRepo.findEntryByUserPseudo(username).forEach(model -> userEntries.add(entryMapper.modelToDto(model)));
+        entryRepo.findEntryByUserMainUsername(username).forEach(model -> userEntries.add(entryMapper.modelToDto(model)));
         return userEntries;
 
     }

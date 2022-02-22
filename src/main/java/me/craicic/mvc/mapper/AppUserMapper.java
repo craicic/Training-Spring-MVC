@@ -15,8 +15,8 @@ public class AppUserMapper {
 
         model.setId(dto.getId());
         model.setCreationDate(dto.getCreationDate());
-        model.setPassword(dto.getPassword());
-        model.setPseudo(dto.getPseudo());
+        model.setMainPassword(dto.getMainPassword());
+        model.setMainUsername(dto.getMainUsername());
 
         return model;
     }
@@ -26,17 +26,17 @@ public class AppUserMapper {
 
         dto.setId(model.getId());
         dto.setCreationDate(model.getCreationDate());
-        dto.setPassword(model.getPassword());
-        dto.setPseudo(model.getPseudo());
+        dto.setMainPassword(model.getMainPassword());
+        dto.setMainUsername(model.getMainUsername());
 
-        Set<EntryDto> entryDtos = new HashSet<>();
+        Set<EntryDto> entryDtoSet = new HashSet<>();
         EntryMapper entryMapper = new EntryMapper();
 
 
         for (Entry entry: model.getEntries() ) {
-            entryDtos.add(entryMapper.modelToDto(entry));
+            entryDtoSet.add(entryMapper.modelToDto(entry));
         }
-        dto.setEntryDtos(entryDtos);
+        dto.getEntryDtoSet().addAll(entryDtoSet);
 
         return dto;
     }

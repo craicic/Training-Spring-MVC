@@ -1,7 +1,7 @@
 package me.craicic.mvc.security;
 
 import me.craicic.mvc.model.AppUser;
-import me.craicic.mvc.model.CustomUserDetails;
+import me.craicic.mvc.model.jpaUserDetails;
 import me.craicic.mvc.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -23,10 +23,10 @@ public class JpaUserDetailsService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        AppUser appUser = appUserRepository.findAppUserByPseudo(username);
+        AppUser appUser = appUserRepository.findAppUserByMainUsername(username);
         if (appUser == null) {
             throw new UsernameNotFoundException("Wrong login");
         }
-        return new CustomUserDetails(appUser.getPseudo(), appUser.getPassword(), null);
+        return new jpaUserDetails(appUser);
     }
 }

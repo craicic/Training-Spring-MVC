@@ -1,35 +1,43 @@
 package me.craicic.mvc.model;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
-public class CustomUserDetails implements UserDetails {
+public class jpaUserDetails implements UserDetails {
 
-    final private String username;
-    final private String password;
-    final private Collection<? extends GrantedAuthority> authorities;
+    private final AppUser appUser;
 
-    public CustomUserDetails(String username, String password, Collection<? extends GrantedAuthority> authorities) {
-        this.username = username;
-        this.password = password;
-        this.authorities = authorities;
+    public jpaUserDetails(AppUser appUser) {
+        this.appUser = appUser;
+
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+
+        // Extract list of permissions (name)
+        this.appUser.getPermissionList().forEach(p -> authorities.add(new SimpleGrantedAuthority(p)));
+
+        // Extract list of roles (ROLE_name)
+        this.appUser.getRoleList().forEach(r -> authorities.add(new SimpleGrantedAuthority("ROLE_" + r)));
+
         return authorities;
     }
 
     @Override
     public String getPassword() {
-        return password;
+        return this.appUser.getMainPassword();
     }
 
     @Override
     public String getUsername() {
-        return username;
+        return this.appUser.getMainUsername();
     }
 
     @Override

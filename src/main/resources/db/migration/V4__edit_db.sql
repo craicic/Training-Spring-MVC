@@ -1,0 +1,19 @@
+ALTER TABLE app_user
+    ADD COLUMN roles VARCHAR(255) NOT NULL DEFAULT 'USER',
+    ADD COLUMN permissions VARCHAR(255) NOT NULL DEFAULT '';
+
+ALTER TABLE app_user
+    RENAME COLUMN pseudo TO main_username;
+ALTER TABLE app_user
+    RENAME COLUMN password TO main_password;
+
+ALTER TABLE app_user
+    ALTER COLUMN main_username TYPE VARCHAR(255),
+    ALTER COLUMN main_password TYPE VARCHAR(255);
+
+ALTER TABLE entry
+    ALTER COLUMN title TYPE VARCHAR(255),
+    ALTER COLUMN username TYPE VARCHAR(255),
+    ALTER COLUMN password TYPE VARCHAR(255),
+    ALTER COLUMN note TYPE VARCHAR(1023);
+

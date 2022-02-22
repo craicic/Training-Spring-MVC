@@ -5,5 +5,5 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface AppUserRepository extends CrudRepository<AppUser, Integer> {
 
-    AppUser findAppUserByPseudo(String pseudo);
+    AppUser findAppUserByMainUsername(String pseudo);
 }
