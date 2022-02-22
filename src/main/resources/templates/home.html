@@ -2,19 +2,19 @@
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
 
-<head th:include="fragment/head :: head">
-    <title id="title">PassDemo - Home</title>
+<head th:insert="fragment/head :: headFragment">
+    <title id="pageTitle">Home - PassDemo</title>
 </head>
 
 <body>
-<div class="container">
-    <p class="text-black-50">Home reached !</p>
+<div class="container-fluid">
+    <p class="text-400">Home reached !</p>
     <p>
         <a th:href="@{overview}">Go to manager</a>
     </p>
 </div>
 
-<div th:include="fragment/script-embbed :: emb"></div>
+<div th:insert="fragment/script-embbed :: embFragment"></div>
 
 </body>
 </html>

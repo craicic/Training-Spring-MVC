@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
-<head th:include="fragment/head">
-    <meta charset="UTF-8">
-    <title>PassDemo - New Entry</title>
+<html xmlns:th="http://www.thymeleaf.org"
+      lang="en">
+
+<head th:insert="fragment/head">
+    <title id="pageTitle">New Entry - PassDemo</title>
 </head>
 <body>
 
-<div th:include="fragment/script-embbed :: emb"></div>
+<div th:insert="fragment/script-embbed :: embFragment"></div>
 </body>
 </html>

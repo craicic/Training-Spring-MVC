@@ -1,0 +1,10 @@
+.padded-15 {
+    padding: min(150px, 15%);
+}
+.text-400 {
+    font-size: 400%;
+}
+
+.text-150 {
+    font-size: 150%;
+}

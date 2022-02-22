@@ -2,17 +2,21 @@
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
 
-<head th:include="fragment/head :: head">
-    <title>PassDemo - Overview</title>
+<head th:insert="fragment/head :: headFragment">
+    <title id="pageTitle">Overview - PassDemo</title>
 </head>
 
+
 <body>
+<div class="container-fluid">
     <p>view reached !</p>
     <p>
         <a th:href="@{/entry/list}">Go to passwords view</a>
         <a th:href="@{/view/new}">Add an entry</a>
     </p>
 
-    <div th:include="fragment/script-embbed :: emb"></div>
+    <div th:insert="fragment/script-embbed :: embFragment"></div>
+</div>
 </body>
+
 </html>

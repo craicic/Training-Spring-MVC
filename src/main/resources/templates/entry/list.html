@@ -2,38 +2,45 @@
 <html xmlns:th="http://www.thymeleaf.org"
       lang="en">
 
-<head th:include="fragment/head :: head">
-    <meta charset="UTF-8">
-    <title>PassDemo - list entries</title>
+<head th:insert="fragment/head :: headFragment">
+    <title id="pageTitle">List entries - PassDemo</title>
 </head>
 
+<link rel="stylesheet" th:href="@{/css/list.css}">
+
 <body>
-<p><span th:text="${user}"></span></p>
+<div class="container-fluid">
+    <div class="padded-15">
+        <span class="text-400" th:text="'Welcome ' + ${user}"></span>
+    </div>
 
-<table class="table">
-    <thead>
-    <tr >
-        <th scope="col">Title</th>
-        <th scope="col">Username</th>
-        <th scope="col">Password</th>
-        <th scope="col">Last edit</th>
-        <th scope="col">Note</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:if="${entries.isEmpty()}">
-        <td colspan="2">No Entries Available for user</td>
-    </tr>
-    <tr th:each="entry : ${entries}">
-        <td><span th:text="${entry.title}"> Title </span></td>
-        <td><span th:text="${entry.username}"> Username </span></td>
-        <td><span th:text="${entry.password}"> Password </span></td>
-        <td><span th:text="${entry.lastModified}"> Last edit </span></td>
-        <td><span th:text="${entry.note}"> Note </span></td>
-    </tr>
-    </tbody>
-</table>
+    <div class="padded-15">
+        <table class="table text-150">
+            <thead>
+            <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Username</th>
+                <th scope="col">Password</th>
+                <th scope="col">Last edit</th>
+                <th scope="col">Note</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr th:if="${entries.isEmpty()}">
+                <td colspan="2">No Entries Available for user</td>
+            </tr>
+            <tr th:each="entry : ${entries}">
+                <td><span th:text="${entry.title}"> Title </span></td>
+                <td><span th:text="${entry.username}"> Username </span></td>
+                <td><span th:text="${entry.password}"> Password </span></td>
+                <td><span th:text="${entry.lastModified}"> Last edit </span></td>
+                <td><span th:text="${entry.note}"> Note </span></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
 
-<div th:include="fragment/script-embbed :: emb"></div>
+    <div th:insert="fragment/script-embbed :: embFragment"></div>
+</div>
 </body>
 </html>
