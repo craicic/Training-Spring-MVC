@@ -36,6 +36,9 @@ public class AppUser {
     @Column(name = "creation_date", nullable = false)
     private Date creationDate;
 
+    @OneToOne(mappedBy = "user")
+    private Secret secret;
+
     @OneToMany(mappedBy = "user")
     private Set<Entry> entries;
 

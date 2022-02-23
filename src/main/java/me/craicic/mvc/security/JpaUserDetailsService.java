@@ -1,7 +1,7 @@
 package me.craicic.mvc.security;
 
 import me.craicic.mvc.model.entity.AppUser;
-import me.craicic.mvc.model.entity.jpaUserDetails;
+import me.craicic.mvc.model.jpaUserDetails;
 import me.craicic.mvc.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
