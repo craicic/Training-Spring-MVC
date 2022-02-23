@@ -8,15 +8,16 @@
 
 
 <body>
-<div class="container-fluid">
-    <p>view reached !</p>
-    <p>
-        <a th:href="@{/entry/list}">Go to passwords view</a>
-        <a th:href="@{/view/new}">Add an entry</a>
-    </p>
-
-    <div th:insert="fragment/script-embbed :: embFragment"></div>
+<div class="padded-15 text-400">
+    <p>You are now logged in !</p>
 </div>
+
+<div class="padded-15 text-200">
+    <a th:href="@{/entry/list}">Go to passwords view</a>
+    <a th:href="@{/view/new}">Add an entry</a>
+</div>
+
+<div th:insert="fragment/script-embbed :: embFragment"></div>
 </body>
 
 </html>

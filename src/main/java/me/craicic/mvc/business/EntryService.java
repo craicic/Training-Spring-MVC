@@ -1,7 +1,7 @@
 package me.craicic.mvc.business;
 
-import me.craicic.mvc.dto.EntryDto;
-import me.craicic.mvc.mapper.EntryMapper;
+import me.craicic.mvc.business.mapper.EntryMapper;
+import me.craicic.mvc.model.dto.EntryDto;
 import me.craicic.mvc.repository.EntryRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

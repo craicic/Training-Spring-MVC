@@ -1,6 +1,6 @@
 package me.craicic.mvc.repository;
 
-import me.craicic.mvc.model.Entry;
+import me.craicic.mvc.model.entity.Entry;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
 

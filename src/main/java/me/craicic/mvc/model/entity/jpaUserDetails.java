@@ -1,4 +1,4 @@
-package me.craicic.mvc.model;
+package me.craicic.mvc.model.entity;
 
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

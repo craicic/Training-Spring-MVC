@@ -1,4 +1,4 @@
-package me.craicic.mvc.dto;
+package me.craicic.mvc.model.dto;
 
 import lombok.Getter;
 import lombok.Setter;

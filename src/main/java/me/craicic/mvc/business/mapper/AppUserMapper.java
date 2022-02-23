@@ -1,9 +1,9 @@
-package me.craicic.mvc.mapper;
+package me.craicic.mvc.business.mapper;
 
-import me.craicic.mvc.dto.AppUserDto;
-import me.craicic.mvc.dto.EntryDto;
-import me.craicic.mvc.model.AppUser;
-import me.craicic.mvc.model.Entry;
+import me.craicic.mvc.model.dto.AppUserDto;
+import me.craicic.mvc.model.dto.EntryDto;
+import me.craicic.mvc.model.entity.AppUser;
+import me.craicic.mvc.model.entity.Entry;
 
 import java.util.HashSet;
 import java.util.Set;

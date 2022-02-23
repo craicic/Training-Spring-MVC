@@ -11,17 +11,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+public class V5__encode_passwords extends BaseJavaMigration {
 
-public class V3__encode_password extends BaseJavaMigration {
-
-    private static final Logger logger = LoggerFactory.getLogger(V3__encode_password.class);
+    private static final Logger logger = LoggerFactory.getLogger(V5__encode_passwords.class);
 
     @Override
     public void migrate(Context context) throws Exception {
 
-
-        String selectQuery = "SELECT id, password FROM app_user";
-        String updateQuery = "UPDATE app_user SET password = ? WHERE id = ? ";
+        String selectQuery = "SELECT id, password FROM entry ";
+        String updateQuery = "UPDATE entry SET password = ? WHERE id = ? ";
 
         Connection connection = context.getConnection();
         Statement st = connection.createStatement();

@@ -1,7 +1,7 @@
-package me.craicic.mvc.mapper;
+package me.craicic.mvc.business.mapper;
 
-import me.craicic.mvc.dto.EntryDto;
-import me.craicic.mvc.model.Entry;
+import me.craicic.mvc.model.dto.EntryDto;
+import me.craicic.mvc.model.entity.Entry;
 import org.springframework.stereotype.Service;
 
 @Service

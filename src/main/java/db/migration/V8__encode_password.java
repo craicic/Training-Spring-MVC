@@ -11,27 +11,22 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+public class V8__encode_password extends BaseJavaMigration {
 
-public class V3__encode_password extends BaseJavaMigration {
-
-    private static final Logger logger = LoggerFactory.getLogger(V3__encode_password.class);
+    private static final Logger logger = LoggerFactory.getLogger(V8__encode_password.class);
 
     @Override
     public void migrate(Context context) throws Exception {
 
-
-        String selectQuery = "SELECT id, password FROM app_user";
-        String updateQuery = "UPDATE app_user SET password = ? WHERE id = ? ";
-
         Connection connection = context.getConnection();
         Statement st = connection.createStatement();
-        ResultSet rs = st.executeQuery(selectQuery);
+        ResultSet rs = st.executeQuery("SELECT id, main_password FROM app_user");
         BCryptPasswordEncoder bcrypt = new BCryptPasswordEncoder();
-        final PreparedStatement psEncoded = connection.prepareStatement(updateQuery);
+        final PreparedStatement psEncoded = connection.prepareStatement("UPDATE app_user SET main_password = ? WHERE id = ? ");
 
         while (rs.next()) {
             int id = rs.getInt("id");
-            String password = rs.getString("password");
+            String password = rs.getString("main_password");
             try {
                 bcrypt.upgradeEncoding(password);
                 logger.debug("Password looks already encoded : " + password);
@@ -49,4 +44,5 @@ public class V3__encode_password extends BaseJavaMigration {
         psEncoded.close();
         st.close();
     }
+
 }
