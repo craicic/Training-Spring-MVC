@@ -36,13 +36,10 @@ public class V8__encode_password extends BaseJavaMigration {
                 psEncoded.setString(1, password);
                 psEncoded.setInt(2, id);
                 psEncoded.execute();
-
-
             }
         }
         rs.close();
         psEncoded.close();
         st.close();
     }
-
 }

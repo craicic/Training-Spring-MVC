@@ -2,9 +2,8 @@ package me.craicic.mvc.business;
 
 import me.craicic.mvc.business.mapper.EntryMapper;
 import me.craicic.mvc.model.dto.EntryDto;
+import me.craicic.mvc.model.entity.Entry;
 import me.craicic.mvc.repository.EntryRepository;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,8 +14,6 @@ import java.util.Set;
 @Service
 @Transactional
 public class EntryService {
-
-    private static final Logger logger = LoggerFactory.getLogger(EntryService.class);
 
     final private EntryRepository entryRepo;
 
@@ -31,8 +28,11 @@ public class EntryService {
 
 
     public Set<EntryDto> getUserEntries(String username) {
+
+        Set<Entry> entries = entryRepo.findEntryByUserMainUsername(username);
         Set<EntryDto> userEntries = new HashSet<>();
-        entryRepo.findEntryByUserMainUsername(username).forEach(model -> userEntries.add(entryMapper.modelToDto(model)));
+        entries.forEach(model -> userEntries.add(entryMapper.modelToDto(model)));
+
         return userEntries;
 
     }
