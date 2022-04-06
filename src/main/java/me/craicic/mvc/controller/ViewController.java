@@ -1,6 +1,6 @@
 package me.craicic.mvc.controller;
 
-import me.craicic.mvc.business.EntryService;
+import me.craicic.mvc.service.EntryService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +25,7 @@ public class ViewController {
     @GetMapping("entry/list")
     public String view(Principal principal, Model model) {
         model.addAttribute("user", principal.getName());
+        // why stream it ???
         model.addAttribute("entries", entryService.getUserEntries(principal.getName()).stream().toList());
         return "entry/list";
     }

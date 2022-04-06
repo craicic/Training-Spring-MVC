@@ -24,6 +24,15 @@ public class EntryDto {
     public EntryDto() {
     }
 
+    public EntryDto(Integer id, String title, String username, String password, String note, Date lastModified) {
+        this.id = id;
+        this.title = title;
+        this.username = username;
+        this.password = password;
+        this.note = note;
+        this.lastModified = lastModified;
+    }
+
     @Override
     public String toString() {
         return "EntryDto{" +

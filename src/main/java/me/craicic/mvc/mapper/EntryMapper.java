@@ -1,4 +1,4 @@
-package me.craicic.mvc.business.mapper;
+package me.craicic.mvc.mapper;
 
 import me.craicic.mvc.model.dto.EntryDto;
 import me.craicic.mvc.model.entity.Entry;

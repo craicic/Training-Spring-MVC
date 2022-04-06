@@ -1,4 +1,4 @@
-package me.craicic.mvc.business;
+package me.craicic.mvc.service;
 
 import me.craicic.mvc.repository.AppUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;

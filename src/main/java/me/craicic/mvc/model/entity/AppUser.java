@@ -21,10 +21,10 @@ public class AppUser {
     @SequenceGenerator(name = "user_seq", sequenceName = "user_sequence", initialValue = 100, allocationSize = 1)
     private Integer id;
 
-    @Column(unique = true, nullable = false)
+    @Column(name="main_username", unique = true, nullable = false)
     private String mainUsername;
 
-    @Column(nullable = false)
+    @Column(name="main_password", nullable = false)
     private String mainPassword;
 
     @Column(nullable = false)
